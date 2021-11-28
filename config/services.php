@@ -30,4 +30,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'auto-parts-api' => [
+        'baseUrl' => env('AUTO_PARTS_API_URI'),
+    ],
 ];

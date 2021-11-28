@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->namespace('API\v1')->group(function (): void {
     Route::post('auth/login', 'AuthController@login');
     Route::post('auth/verify', 'AuthController@verify');
+    Route::get('user/garage', 'UserController@garage');
 });
 
