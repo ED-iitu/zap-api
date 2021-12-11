@@ -21,7 +21,6 @@ class UserController extends Controller
         $vin        = request()->vin;
         $categories = implode(',', request()->category_id);
 
-
         if (null !== $data = $repository->findByVin($vin)) {
             $response = [
                 'garage' => $data

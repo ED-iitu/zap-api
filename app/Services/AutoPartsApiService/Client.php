@@ -21,9 +21,16 @@ class Client
     }
 
     public function search($vin, $categories) {
-        $request  = Http::withBasicAuth(env('AUTO_PARTS_API_USERNAME'), env('AUTO_PARTS_API_PASSWORD'));
+        $request = Http::withBasicAuth(env('AUTO_PARTS_API_USERNAME'), env('AUTO_PARTS_API_PASSWORD'));
 
         return $request->post($this->baseUrl . '/api/v1/search?vin=' . $vin . '&category_id=' . $categories);
+    }
+
+    public function getCategories()
+    {
+        $request = Http::withBasicAuth(env('AUTO_PARTS_API_USERNAME'), env('AUTO_PARTS_API_PASSWORD'));
+
+        return $request->get($this->baseUrl . '/api/v1/get_categories');
     }
 
 }
