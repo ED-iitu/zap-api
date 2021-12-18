@@ -19,7 +19,6 @@ class BasicAuth
         $AUTH_PASS = env('API_PASSWORD');
 
         header('Cache-Control: no-cache, must-revalidate, max-age=0');
-        $request->headers->set('Content-Type', 'application/json');
 
         $has_supplied_credentials = !(empty($_SERVER['PHP_AUTH_USER']) && empty($_SERVER['PHP_AUTH_PW']));
 
