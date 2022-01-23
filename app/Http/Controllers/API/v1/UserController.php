@@ -16,10 +16,15 @@ use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        \request()->headers->set('Content-Type', 'application/json');
+    }
+
     public function garage(Request $request, Client $client, GarageRepository $repository)
     {
-        $vin        = request()->vin;
-        $categories = implode(',', request()->category_id);
+        $vin         = $request->get('vin');
+        $categories  = implode(',', $request->get('category_id'));
 
         if (null !== $data = $repository->findByVin($vin)) {
             $response = [

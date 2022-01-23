@@ -19,5 +19,6 @@ Route::middleware('basicAuth')->prefix('v1')->namespace('API\v1')->group(functio
     Route::post('auth/verify', 'AuthController@verify');
     Route::post('user/garage', 'UserController@garage');
     Route::get('category', 'CategoryController@categories');
+    Route::get('search', 'SearchController@search');
 });
 
