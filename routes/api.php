@@ -22,3 +22,17 @@ Route::middleware('basicAuth')->prefix('v1')->namespace('API\v1')->group(functio
     Route::get('search', 'SearchController@search');
 });
 
+Route::middleware('auth:sanctum')->prefix('v1')->namespace('API\v1')->group(function (): void {
+    Route::get('user/garage/{vin}', 'UserController@getGarage');
+    Route::delete('user/garage/{vin}', 'UserController@deleteGarage');
+
+    Route::get('user/profile', 'UserController@profile');
+    Route::post('user/profile', 'UserController@changeProfile');
+
+    Route::post('user/change-phone', 'UserController@changePhone');
+
+    Route::get('user/address', 'UserController@getAddress');
+    Route::post('user/address', 'UserController@addAddress');
+    Route::delete('user/address/{id}','UserController@deleteAddress');
+});
+

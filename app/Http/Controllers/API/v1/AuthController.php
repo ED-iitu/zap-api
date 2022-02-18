@@ -19,17 +19,21 @@ class AuthController extends Controller
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Repositories\UsersRepository $repository
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function login(Request $request, UsersRepository $repository): Response
+    public function login(Request $request, UsersRepository $repository)
     {
         $request->validate(['phone' => 'required']);
+        $phone = $request->get('phone');
 
-        $user = $repository->findByPhone($request->get('phone'));
+        $user = $repository->findByPhone($phone);
 
         $this->updateCodeAndSendSMS($user);
 
-        return response(null, Response::HTTP_ACCEPTED);
+        return [
+            'message' => "Sms отправлен на $phone",
+            'code' => Response::HTTP_ACCEPTED
+        ];
     }
 
     /**
