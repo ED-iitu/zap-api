@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        \request()->headers->set('Content-Type', 'application/json');
-    }
+//    public function __construct()
+//    {
+//        \request()->headers->set('Content-Type', 'application/json');
+//    }
 
     public function garage(Request $request, Client $client, GarageRepository $repository)
     {
@@ -96,17 +96,10 @@ class UserController extends Controller
 
     public function addAddress(Request $request)
     {
-        $validator = Validator::make($request->post(), [
+        $request->validate([
             'street' => 'required',
             'house'  => 'required',
         ]);
-
-        if ($validator->fails()) {
-            return [
-                'message' => $validator->errors(),
-                'status'  => Response::HTTP_BAD_REQUEST
-            ];
-        }
 
         $address = new Address();
 
@@ -197,17 +190,10 @@ class UserController extends Controller
 
     public function changeProfile(Request $request)
     {
-        $validator = Validator::make($request->post(), [
+        $request->validate([
             'name' => 'required',
             'last_name'  => 'required',
         ]);
-
-        if ($validator->fails()) {
-            return [
-                'message' => $validator->errors(),
-                'status' => Response::HTTP_BAD_REQUEST
-            ];
-        }
 
         $profile            = Auth::user();
         $profile->name      = $request->get('name');
@@ -228,17 +214,10 @@ class UserController extends Controller
 
     public function changePhone(Request $request)
     {
-        $validator = Validator::make($request->post(), [
+        $request->validate([
             'old_phone' => 'required',
-            'new_phone'  => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'new_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
         ]);
-
-        if ($validator->fails()) {
-            return [
-                'message' => $validator->errors(),
-                'status' => Response::HTTP_BAD_REQUEST
-            ];
-        }
 
         $profile = Auth::user();
 
