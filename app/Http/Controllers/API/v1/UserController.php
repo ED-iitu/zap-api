@@ -19,11 +19,6 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-//    public function __construct()
-//    {
-//        \request()->headers->set('Content-Type', 'application/json');
-//    }
-
     public function garage(Request $request, Client $client, GarageRepository $repository)
     {
         $vin         = $request->get('vin');
@@ -240,6 +235,24 @@ class UserController extends Controller
         return [
             'message' => 'Ошибка при обновлении телефона',
             'status'  => Response::HTTP_BAD_REQUEST
+        ];
+    }
+
+    public function getAllGarages(GarageRepository $repository)
+    {
+        $userId  = Auth::user()->id;
+        $garages = $repository->allByUserId($userId);
+
+        if (!empty($garages)) {
+            return [
+                'garages' => $garages,
+                'status' => Response::HTTP_OK
+            ];
+        }
+
+        return [
+            'message' => "Гаражи не найдены",
+            'status'  => Response::HTTP_NOT_FOUND
         ];
     }
 }

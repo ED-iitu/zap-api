@@ -38,5 +38,4 @@ class GarageRepository
     {
         return Garage::query()->where('vin', $vin)->delete();
     }
-
 }
