@@ -116,6 +116,13 @@ class UserController extends Controller
         ];
     }
 
+    public function categories(Client $client)
+    {
+        $response = $client->getCategories();
+
+        return response($response);
+    }
+
     public function getAddress()
     {
         $userAddresses = [];
