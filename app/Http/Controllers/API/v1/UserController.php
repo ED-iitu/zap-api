@@ -55,9 +55,22 @@ class UserController extends Controller
         ];
     }
 
-    public function test()
+    public function test(GarageRepository $repository)
     {
-        return "test";
+        $userId  = Auth::user()->id;
+        $garages = $repository->allByUserId($userId);
+
+        if (!empty($garages)) {
+            return [
+                'garages' => $garages,
+                'status' => Response::HTTP_OK
+            ];
+        }
+
+        return [
+            'message' => "Гаражи не найдены",
+            'status'  => Response::HTTP_NOT_FOUND
+        ];
     }
 
     public function deleteGarage(GarageRepository $repository, string $vin)
