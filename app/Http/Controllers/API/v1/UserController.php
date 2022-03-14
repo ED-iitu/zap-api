@@ -55,7 +55,7 @@ class UserController extends Controller
         ];
     }
 
-    public function test(GarageRepository $repository)
+    public function test(GarageRepository $repository, Client $client)
     {
         $userId  = Auth::user()->id;
         $garages = $repository->allByUserId($userId);
