@@ -44,7 +44,7 @@ class SearchController extends Controller
 
         $user = $repository->findByPhone($phone);
 
-        $this->updateCodeAndSendSMS($user);
+        //$this->updateCodeAndSendSMS($user);
 
         return [
             'message' => "Sms отправлен на $phone",
