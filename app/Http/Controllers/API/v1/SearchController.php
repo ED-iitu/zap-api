@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Validator;
 
 class SearchController extends Controller
 {
-    public function __construct()
-    {
-        \request()->headers->set('Content-Type', 'application/json');
-    }
-
     public function search(Request $request, Client $client)
     {
         $validator = Validator::make($request->all(), [
