@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('auth/login', 'AuthController@login');
+Route::post('v1/auth/login', 'API\v1\AuthController@login');
 Route::post('auth/verify', 'AuthController@verify');
 Route::post('user/garage', 'UserController@garage');
 Route::get('category', 'CategoryController@categories');
