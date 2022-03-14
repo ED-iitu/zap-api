@@ -56,6 +56,6 @@ class BasicAuth
             }
         }
 
-        return $next($request)->header('Content-Type', 'application-json');
+        return $next($request);
     }
 }
