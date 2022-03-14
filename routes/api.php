@@ -18,7 +18,7 @@ Route::middleware('basicAuth')->prefix('v1')->namespace('API\v1')->group(functio
     Route::post('auth/login', 'AuthController@login');
     Route::post('auth/verify', 'AuthController@verify');
     Route::post('user/garage', 'UserController@garage');
-    Route::get('user/category', 'UserController@categories');
+
     Route::get('search', 'SearchController@search');
     Route::get('user/get-garage/{vin}', 'UserController@getGarage');
 });
@@ -36,5 +36,7 @@ Route::middleware('auth:sanctum')->prefix('v1')->namespace('API\v1')->group(func
     Route::post('user/address', 'UserController@addAddress');
     Route::delete('user/address/{id}','UserController@deleteAddress');
     Route::get('user/garages', 'UserController@getAllGarages');
+
+    Route::get('user/category', 'UserController@categories');
 });
 
