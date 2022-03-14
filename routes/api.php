@@ -20,6 +20,9 @@ Route::middleware('basicAuth')->prefix('v1')->namespace('API\v1')->group(functio
     Route::post('user/garage', 'UserController@garage');
     Route::get('category', 'CategoryController@categories');
     Route::get('search', 'SearchController@search');
+
+    Route::get('search2', 'SearchController@search2');
+
     Route::get('user/get-garage/{vin}', 'UserController@getGarage');
 });
 

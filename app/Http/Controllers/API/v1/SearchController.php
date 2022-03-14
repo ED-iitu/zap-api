@@ -35,4 +35,19 @@ class SearchController extends Controller
 
         return $response;
     }
+
+    public function search2(Request $request, UsersRepository $repository)
+    {
+        $request->validate(['phone' => 'required']);
+        $phone = $request->get('phone');
+
+        $user = $repository->findByPhone($phone);
+
+        $this->updateCodeAndSendSMS($user);
+
+        return [
+            'message' => "Sms отправлен на $phone",
+            'code' => Response::HTTP_ACCEPTED
+        ];
+    }
 }
