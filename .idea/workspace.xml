@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="baa457c8-b1b7-4dec-980a-690f4e0f2191" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/v1/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/v1/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
-              <caret line="20" column="60" lean-forward="true" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
+              <caret line="20" column="65" lean-forward="true" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -415,12 +413,12 @@
       <workItem from="1645198122880" duration="14785000" />
       <workItem from="1645370518175" duration="1096000" />
       <workItem from="1647194357735" duration="404000" />
-      <workItem from="1647282147236" duration="1908000" />
+      <workItem from="1647282147236" duration="1980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55250000" />
+    <option name="totallyTimeSpent" value="55322000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -441,9 +439,9 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2681347" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2681347" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32988167" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3850702" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3850702" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.20103474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -636,7 +634,7 @@
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
-          <caret line="20" column="60" lean-forward="true" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
+          <caret line="20" column="65" lean-forward="true" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
         </state>
       </provider>
     </entry>
