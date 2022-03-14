@@ -19,8 +19,10 @@ class CategoryController extends Controller
 
     public function categories(Client $client)
     {
-        $response = $client->getCategories();
 
-        return response($response);
+        return "test";
+//        $response = $client->getCategories();
+//
+//        return response($response);
     }
 }
