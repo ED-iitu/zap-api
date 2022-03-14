@@ -15,7 +15,6 @@ use App\Services\AutoPartsApiService\Client;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -35,7 +34,7 @@ class UserController extends Controller
         $response   = $client->search($vin, $categories);
         $response   = json_decode($response);
         $garageData = [
-            'user_id'      => $request->user() ?? 1,
+            'user_id'      => $request->user()->id ?? 1,
             'vin'          => $vin,
             'mark'         => $response->car->mark,
             'model'        => $response->car->model,
