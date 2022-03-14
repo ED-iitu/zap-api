@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Services\AutoPartsApiService\Client;
 use Illuminate\Support\Facades\Validator;
+use App\Repositories\UsersRepository;
 
 class SearchController extends Controller
 {
