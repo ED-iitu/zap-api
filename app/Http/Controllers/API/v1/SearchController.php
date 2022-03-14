@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Services\AutoPartsApiService\Client;
 use Illuminate\Support\Facades\Validator;
-use App\Repositories\UsersRepository;
 
 class SearchController extends Controller
 {
@@ -35,20 +34,5 @@ class SearchController extends Controller
         $response   = $client->search($vin, $categories);
 
         return $response;
-    }
-
-    public function search2(Request $request, UsersRepository $repository)
-    {
-        $request->validate(['phone' => 'required']);
-        $phone = $request->get('phone');
-
-        $user = $repository->findByPhone($phone);
-
-        //$this->updateCodeAndSendSMS($user);
-
-        return [
-            'message' => "Sms отправлен на $phone",
-            'code' => Response::HTTP_ACCEPTED
-        ];
     }
 }
