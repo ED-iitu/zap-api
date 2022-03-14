@@ -55,6 +55,11 @@ class UserController extends Controller
         ];
     }
 
+    public function test()
+    {
+        return "test";
+    }
+
     public function deleteGarage(GarageRepository $repository, string $vin)
     {
         if ($repository->deleteByVin($vin)) {

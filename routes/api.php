@@ -21,7 +21,7 @@ Route::middleware('basicAuth')->prefix('v1')->namespace('API\v1')->group(functio
     Route::get('category', 'CategoryController@categories');
     Route::get('search', 'SearchController@search');
     Route::get('user/get-garage/{vin}', 'UserController@getGarage');
-    Route::get('user/category', 'CategoryController@categories');
+    Route::get('user/category', 'UserController@test');
 });
 
 Route::middleware('auth:sanctum')->prefix('v1')->namespace('API\v1')->group(function (): void {

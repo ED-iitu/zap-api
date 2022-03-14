@@ -12,11 +12,6 @@ use App\Services\AutoPartsApiService\Client;
 
 class CategoryController extends Controller
 {
-//    public function __construct()
-//    {
-//        \request()->headers->set('Content-Type', 'application/json');
-//    }
-
     public function categories(Client $client)
     {
 
