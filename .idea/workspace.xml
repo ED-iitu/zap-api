@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="baa457c8-b1b7-4dec-980a-690f4e0f2191" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/v1/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/BasicAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/BasicAuth.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,18 +66,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicAuth.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BasicAuth.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/BasicAuth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state relative-caret-position="188">
+              <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckForMaintenanceMode.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="Authenticate.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="EncryptCookies.php" pinned="false" current-in-tab="false">
@@ -146,6 +150,7 @@
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/v1/SearchController.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/BasicAuth.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
       </list>
     </option>
   </component>
@@ -405,12 +410,12 @@
       <workItem from="1645198122880" duration="14785000" />
       <workItem from="1645370518175" duration="1096000" />
       <workItem from="1647194357735" duration="404000" />
-      <workItem from="1647282147236" duration="4423000" />
+      <workItem from="1647282147236" duration="4557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57765000" />
+    <option name="totallyTimeSpent" value="57899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -600,9 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -647,8 +649,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/BasicAuth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        <state relative-caret-position="188">
+          <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>
