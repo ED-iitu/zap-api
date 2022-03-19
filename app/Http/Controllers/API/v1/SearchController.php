@@ -45,10 +45,7 @@ class SearchController extends Controller
                 $oems[] = $item->oem;
             }
             if (!empty($oems)) {
-                $data[$key][] = [
-                    'supplier' => $supplier->search($oems, $brand)->json(),
-                    'data' =>$autoPartsData->parts->$key,
-                ];
+                $data[$key][] =  $supplier->search($oems, $brand)->json();
             }
         }
 
