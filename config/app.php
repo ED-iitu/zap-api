@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\AutoPartsApiProvider::class,
+        App\Providers\SupplierApiProvider::class,
 
         /*
          * Package Service Providers...

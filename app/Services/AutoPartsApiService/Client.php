@@ -26,11 +26,25 @@ class Client
         return $request->post($this->baseUrl . '/api/v1/search?vin=' . $vin . '&category_id=' . $categories);
     }
 
+    public function findByOemsAndBrand(array $oemsArray, string $brand)
+    {
+        $request = Http::withBasicAuth(env('AUTO_PARTS_API_USERNAME'), env('AUTO_PARTS_API_PASSWORD'));
+
+        $oems = [];
+
+        foreach ($oemsArray as $oem) {
+            $oems[] = "oem[]=$oem";
+        }
+
+        $implode = implode('&', $oems);
+
+        return $request->post($this->baseUrl . "/api/v1/oem?$implode&$brand");
+    }
+
     public function getCategories()
     {
         $request = Http::withBasicAuth(env('AUTO_PARTS_API_USERNAME'), env('AUTO_PARTS_API_PASSWORD'));
 
         return $request->get($this->baseUrl . '/api/v1/get_categories');
     }
-
 }
