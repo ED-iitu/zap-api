@@ -36,21 +36,41 @@ class SearchController extends Controller
         $autoPartsData  = json_decode($autoPartsData);
 
 
+
         $brand = $autoPartsData->car->mark;
         $data  = [];
 
         foreach ($autoPartsData->parts as $key => $part) {
+            $category = null;
             $oems = [];
+
             foreach ($part as $item) {
+                $category = $item->category;
                 $oems[] = $item->oem;
             }
+
             if (!empty($oems)) {
-                $data[$key][] =  $supplier->search($oems, $brand)->json();
+                $dataFromSupplier = $supplier->search($oems, $brand)->json();
+               // if (!empty($dataFromSupplier)) {
+                    $data[] = [
+                        'items_more' => count($dataFromSupplier),
+                        'category_id' => $category->id,
+                        'category_title' => $category->name,
+                        'parts' => $dataFromSupplier,
+                    ];
+              //  }
+
             }
         }
 
-        $data['car'] = $autoPartsData->car;
+        $result = [
+            'success' => true,
+            'data' => [
+                'categories' => $data,
+                'car' => $autoPartsData->car,
+            ],
+        ];
 
-        return $data;
+        return $result;
     }
 }
