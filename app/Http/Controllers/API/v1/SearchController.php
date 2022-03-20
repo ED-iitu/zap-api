@@ -57,7 +57,7 @@ class SearchController extends Controller
                         'items_more' => count($dataFromSupplier),
                         'category_id' => $category->id,
                         'category_title' => $category->name,
-                        'parts' => $dataFromSupplier[0] ?? [],
+                        'parts' => [$dataFromSupplier[0] ?? []],
                     ];
               //  }
 
