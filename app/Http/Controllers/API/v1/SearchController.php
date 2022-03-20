@@ -51,12 +51,13 @@ class SearchController extends Controller
 
             if (!empty($oems)) {
                 $dataFromSupplier = $supplier->search($oems, $brand)->json();
+
                // if (!empty($dataFromSupplier)) {
                     $data[] = [
                         'items_more' => count($dataFromSupplier),
                         'category_id' => $category->id,
                         'category_title' => $category->name,
-                        'parts' => $dataFromSupplier,
+                        'parts' => $dataFromSupplier[0] ?? [],
                     ];
               //  }
 
