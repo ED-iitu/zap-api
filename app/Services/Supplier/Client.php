@@ -33,4 +33,11 @@ class Client
 
         return $request->get($this->baseUrl . "/api/v1/search?$implode&brand=$brand");
     }
+
+    public function getOne($id)
+    {
+        return Http::withBasicAuth(
+            env('SUPPLIER_API_USERNAME'), env('SUPPLIER_API_PASSWORD')
+        )->get($this->baseUrl . "/api/v1/part/$id");
+    }
 }

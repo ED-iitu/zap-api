@@ -19,7 +19,7 @@ class SearchController extends Controller
     public function search(Request $request, AutoPartClient $autoParts, SupplierClient $supplier)
     {
         $validator = Validator::make($request->all(), [
-            'vin' => 'required|regex:/^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$/|min:17',
+            'vin'         => 'required|regex:/^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$/|min:17',
             'category_id' => 'required'
         ]);
 
@@ -34,11 +34,8 @@ class SearchController extends Controller
         $categories     = implode(',', $request->get('category_id'));
         $autoPartsData  = $autoParts->search($vin, $categories);
         $autoPartsData  = json_decode($autoPartsData);
-
-
-
-        $brand = $autoPartsData->car->mark;
-        $data  = [];
+        $brand          = $autoPartsData->car->mark;
+        $data           = [];
 
         foreach ($autoPartsData->parts as $key => $part) {
             $category = null;
@@ -46,29 +43,27 @@ class SearchController extends Controller
 
             foreach ($part as $item) {
                 $category = $item->category;
-                $oems[] = $item->oem;
+                $oems[]   = $item->oem;
             }
 
             if (!empty($oems)) {
                 $dataFromSupplier = $supplier->search($oems, $brand)->json();
-
-               // if (!empty($dataFromSupplier)) {
-                    $data[] = [
-                        'items_more' => count($dataFromSupplier),
-                        'category_id' => $category->id,
-                        'category_title' => $category->name,
-                        'parts' => [$dataFromSupplier[0] ?? []],
-                    ];
-              //  }
-
+                $data[]           = [
+                    'items_more'     => count($dataFromSupplier),
+                    'category_id'    => $category->id,
+                    'category_title' => $category->name,
+                    'parts'          => [
+                        $dataFromSupplier[0] ?? []
+                    ],
+                ];
             }
         }
 
         $result = [
             'success' => true,
-            'data' => [
+            'data'    => [
                 'categories' => $data,
-                'car' => $autoPartsData->car,
+                'car'        => $autoPartsData->car,
             ],
         ];
 
