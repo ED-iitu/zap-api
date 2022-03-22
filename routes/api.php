@@ -21,6 +21,7 @@ Route::middleware('basicAuth')->prefix('v1')->namespace('API\v1')->group(functio
     Route::get('category', 'CategoryController@categories');
     Route::get('search', 'SearchController@search');
     Route::get('part/{id}', 'PartController@getOne');
+    Route::get('parts', 'PartController@getMany');
 
     Route::get('user/get-garage/{vin}', 'UserController@getGarage');
 });
