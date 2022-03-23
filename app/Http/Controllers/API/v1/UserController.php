@@ -73,7 +73,7 @@ class UserController extends Controller
 
     public function getGarage(GarageRepository $repository, string $vin, Client $client)
     {
-        $garage = $client->search($vin, [1]);
+        $garage = $client->search($vin, 1);
 
         if (!empty($garage)) {
             return [
