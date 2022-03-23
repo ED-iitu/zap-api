@@ -76,6 +76,7 @@ class UserController extends Controller
         $garage = $client->search($vin, 1)->json();
 
         if (!empty($garage)) {
+            $garage['car']['year'] = (int) $garage['car']['year'];
             return [
                 'garage' => $garage['car'],
                 'status' => Response::HTTP_OK
