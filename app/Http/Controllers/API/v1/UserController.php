@@ -76,6 +76,7 @@ class UserController extends Controller
         $garage = $client->search($vin, 1)->json();
 
         if (!empty($garage)) {
+            $garage['car']['vin'] = $vin;
             $garage['car']['year'] = (int) $garage['car']['year'];
             $garage['car']['capacity'] = (int) $garage['car']['capacity'];
             $garage['car']['year_created'] = date('Y-m-d');
