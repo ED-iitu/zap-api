@@ -48,7 +48,7 @@ class PartController extends Controller
         }
 
         $vin            = $request->get('vin');
-        $categories     = implode(',', $request->get('category_id'));
+        $categories     = $request->get('category_id');
         $autoPartsData  = $autoParts->search($vin, $categories);
         $autoPartsData  = json_decode($autoPartsData);
         $brand          = $autoPartsData->car->mark;
