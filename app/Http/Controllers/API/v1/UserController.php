@@ -77,6 +77,7 @@ class UserController extends Controller
 
         if (!empty($garage)) {
             $garage['car']['year'] = (int) $garage['car']['year'];
+            $garage['car']['capacity'] = (int) $garage['car']['capacity'];
             return [
                 'garage' => $garage['car'],
                 'status' => Response::HTTP_OK
