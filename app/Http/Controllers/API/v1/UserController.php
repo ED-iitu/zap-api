@@ -71,9 +71,9 @@ class UserController extends Controller
         ];
     }
 
-    public function getGarage(GarageRepository $repository, string $vin)
+    public function getGarage(GarageRepository $repository, string $vin, Client $client)
     {
-        $garage = $repository->findByVin($vin);
+        $garage = $client->search($vin, [1]);
 
         if (!empty($garage)) {
             return [
