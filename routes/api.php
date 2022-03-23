@@ -30,6 +30,8 @@ Route::middleware('auth:sanctum')->prefix('v1')->namespace('API\v1')->group(func
     Route::get('user/garage/{vin}', 'UserController@getGarage');
     Route::delete('user/garage/{vin}', 'UserController@deleteGarage');
 
+    Route::post('user/garage', 'UserController@garage');
+
     Route::get('user/profile', 'UserController@profile');
     Route::post('user/profile', 'UserController@changeProfile');
 
