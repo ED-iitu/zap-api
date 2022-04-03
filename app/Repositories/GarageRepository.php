@@ -21,7 +21,7 @@ class GarageRepository
 
     public function findByVin(string $vin): ?Garage
     {
-        return Garage::query()->where('vin', $vin)->first();
+        return Garage::query()->where('vin', $vin)->where('user_id', request()->user()->id)->first();
     }
 
     public function all(): ?Collection

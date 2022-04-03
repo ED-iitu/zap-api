@@ -25,7 +25,7 @@ class UserController extends Controller
 
         if (null !== $data = $repository->findByVin($vin)) {
             $response = [
-                'garage' => $data
+                'error' => 'Гараж добавлен для другого пользователя'
             ];
 
             return $response;
