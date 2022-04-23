@@ -49,4 +49,9 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     {
         return $this->hasMany(Address::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

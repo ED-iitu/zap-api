@@ -41,5 +41,9 @@ Route::middleware('auth:sanctum')->prefix('v1')->namespace('API\v1')->group(func
     Route::post('user/address', 'UserController@addAddress');
     Route::delete('user/address/{id}','UserController@deleteAddress');
     Route::get('user/garages', 'UserController@getAllGarages');
+
+    Route::post('order', 'OrderController@create');
+    Route::get('orders', 'OrderController@getAll');
+    Route::get('order/{id}', 'OrderController@getOne');
 });
 

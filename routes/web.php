@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products', 'Admin\ProductController@index')->name('products');
+Route::get('/orders', 'Admin\OrderController@index')->name('orders');
+Route::get('/users', 'Admin\UserController@index')->name('users');
+Route::get('/suppliers', 'Admin\SupplierController@index')->name('suppliers');
