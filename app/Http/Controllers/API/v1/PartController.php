@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers\API\v1;
 
+use App\Models\User;
 use App\Services\Supplier\Client as SupplierClient;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

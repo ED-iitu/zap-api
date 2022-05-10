@@ -24,6 +24,8 @@ Route::middleware('basicAuth')->prefix('v1')->namespace('API\v1')->group(functio
     Route::get('parts', 'PartController@getMany');
 
     Route::get('user/get-garage/{vin}', 'UserController@getGarage');
+    Route::get('suppliers', 'UserController@getSuppliers');
+    Route::get('supplier/{id}', 'UserController@getOneSupplier');
 });
 
 Route::middleware('auth:sanctum')->prefix('v1')->namespace('API\v1')->group(function (): void {
@@ -45,5 +47,7 @@ Route::middleware('auth:sanctum')->prefix('v1')->namespace('API\v1')->group(func
     Route::post('order', 'OrderController@create');
     Route::get('orders', 'OrderController@getAll');
     Route::get('order/{id}', 'OrderController@getOne');
+
+    Route::post('feedback', 'FeedbackController@createFeedback');
 });
 

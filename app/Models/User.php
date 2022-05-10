@@ -27,6 +27,8 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
         'city_id',
     ];
 
+    protected $appends = ['average_rating', 'feedbacks_count'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -53,5 +55,20 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class, 'supplier_id', 'id');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return (float)$this->feedbacks()->average('star');
+    }
+
+    public function getFeedbacksCountAttribute()
+    {
+        return $this->feedbacks()->count();
     }
 }

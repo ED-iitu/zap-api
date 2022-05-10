@@ -20,7 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/products', 'Admin\ProductController@index')->name('products');
+//Route::get('/products', 'Admin\ProductController@index')->name('products');
 Route::get('/orders', 'Admin\OrderController@index')->name('orders');
 Route::get('/users', 'Admin\UserController@index')->name('users');
 Route::get('/suppliers', 'Admin\SupplierController@index')->name('suppliers');
+
+Route::get('products/import', 'Admin\ProductController@importPage')->name('importProduct');
+Route::post('import', 'Admin\ProductController@import')->name('import');
+Route::resource('products', 'Admin\ProductController', ['only'=> ['index','create','store','edit', 'update', 'destroy']]);

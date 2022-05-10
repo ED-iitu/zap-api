@@ -9,7 +9,9 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Models\Address;
+use App\Models\Feedback;
 use App\Models\Garage;
+use App\Models\User;
 use App\Repositories\GarageRepository;
 use App\Services\AutoPartsApiService\Client;
 use Illuminate\Http\Request;
@@ -263,6 +265,41 @@ class UserController extends Controller
         return [
             'message' => "Гаражи не найдены",
             'status'  => Response::HTTP_NOT_FOUND
+        ];
+    }
+
+    public function getSuppliers(Request $request)
+    {
+        $suppliers = User::where('type', 2)->get();
+
+        return [
+            'success' => true,
+            'data' => $suppliers
+        ];
+    }
+
+    public function getOneSupplier(int $id)
+    {
+        $supplier = User::where('id', $id)->with('feedbacks')->first();
+
+//        $feedbacks = $supplier->feedbacks;
+//
+//        $data = [];
+//
+//        foreach ($feedbacks as $feedback) {
+//            $data[] = $feedback->star;
+//        }
+//
+//        $data = array_filter($data);
+//        $average = array_sum($data)/count($data);
+//
+//        $supplier['feedback_count'] = count($feedbacks);
+//        $supplier['average_star'] = $average;
+
+
+        return [
+            'success' => true,
+            'data' => $supplier
         ];
     }
 }
