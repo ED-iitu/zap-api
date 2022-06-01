@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Models\User;
+use App\Services\Sms\SmsCenter;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
@@ -28,7 +29,7 @@ class AuthController extends Controller
 
         $user = $repository->findByPhone($phone);
 
-        $this->updateCodeAndSendSMS($user);
+        $this->updateCodeAndSendSMS($user, $phone);
 
         return [
             'message' => "Sms отправлен на $phone",
@@ -48,7 +49,16 @@ class AuthController extends Controller
             'code' => 'required|digits:4',
         ]);
 
+
         $user = $repository->findByPhoneAndCode($request->get('phone'), $request->get('code'));
+
+        if (null === $user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Не правильный код'
+            ]);
+        }
+
         $user->update(['code' => null]);
 
         return response()->json(['token' => $user->createToken('api')->plainTextToken]);
@@ -58,14 +68,28 @@ class AuthController extends Controller
      * @param \App\Models\User $user
      * @return void
      */
-    private function updateCodeAndSendSMS(User $user): void
+    private function updateCodeAndSendSMS(User $user, $phone): void
     {
-        //$code = rand(1000, 9999);
-        //Для тестирования
         $code = 1111;
 
-        $user->update(['code' => $code]);
+        if (request()->get('mode') == 'production') {
+            $code = rand(1000, 9999);
 
-        //TODO Тут реальзивать отправку СМС через СМС центр
+            try {
+                $smsCenter = new SmsCenter();
+
+                $smsCenter->sendMessage(
+                    $phone,
+                    'Код доступа: ' . $code
+                );
+
+                $user->update(['code' => $code]);
+
+            } catch (\Exception $e) {
+                $user->update(['code' => 1111]);
+            }
+        }
+
+        $user->update(['code' => $code]);
     }
 }
