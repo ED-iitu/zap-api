@@ -10,6 +10,7 @@ namespace App\Imports;
 
 use App\Models\User;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -28,7 +29,7 @@ class ProductImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
     public function model(array $row)
     {
         return new Product([
-            'company_id' => $this->user->id,
+            'company_id' => 1,
             'name' => $row['naimenovanie'],
             'description' => $row['naimenovanie'],
             'article' => $row['kod'],
@@ -46,11 +47,11 @@ class ProductImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
 
     public function chunkSize(): int
     {
-        return 5000;
+        return 500;
     }
 
     public function batchSize(): int
     {
-        return 5000;
+        return 500;
     }
 }

@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa457c8-b1b7-4dec-980a-690f4e0f2191" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/autoparts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/autoparts.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0e8355ea-6707-4704-ace4-29bc6c8116fe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0e8355ea-6707-4704-ace4-29bc6c8116fe.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/ProductImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/ProductImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652182192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652190425.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652190628.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652190766.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652190936.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652190996.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652191065.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652191081.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/public/storage/1652191594.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -554,7 +556,7 @@
       <workItem from="1652105172534" duration="7260000" />
       <workItem from="1652178775866" duration="4752000" />
       <workItem from="1652190904031" duration="5826000" />
-      <workItem from="1711992086807" duration="1335000" />
+      <workItem from="1711992086807" duration="6674000" />
     </task>
     <servers />
   </component>

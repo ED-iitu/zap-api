@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -98,16 +99,15 @@ class ProductController extends Controller
 
     public function import(Request $request)
     {
-        $file            = $request->file('importFile');
-        $input['file']   = time().'.'.$file->getClientOriginalExtension();
-        $destinationPath = 'public/storage';
+        $importFile    = $request->file('importFile');
+        $hash          = Str::random(20);
+        $fileExtension = $importFile->getClientOriginalExtension();
 
-        $file->move($destinationPath, $input['file']);
+        $filePath = $importFile->storeAs(
+            'uploads', $hash . '.' . $fileExtension
+        );
 
-        $fileLink = $destinationPath.'/'.$input['file'];
-
-
-        Bus::dispatchNow(new ImportProducts($fileLink));
+        ImportProducts::dispatch($filePath);
 
         return back()->withStatus('Import done!');
     }
