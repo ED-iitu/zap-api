@@ -72,23 +72,23 @@ class AuthController extends Controller
     {
         $code = 1111;
 
-        if (request()->get('mode') == 'production') {
-            $code = rand(1000, 9999);
-
-            try {
-                $smsCenter = new SmsCenter();
-
-                $smsCenter->sendMessage(
-                    $phone,
-                    'Код доступа: ' . $code
-                );
-
-                $user->update(['code' => $code]);
-
-            } catch (\Exception $e) {
-                $user->update(['code' => 1111]);
-            }
-        }
+//        if (request()->get('mode') == 'production') {
+//            $code = rand(1000, 9999);
+//
+//            try {
+//                $smsCenter = new SmsCenter();
+//
+//                $smsCenter->sendMessage(
+//                    $phone,
+//                    'Код доступа: ' . $code
+//                );
+//
+//                $user->update(['code' => $code]);
+//
+//            } catch (\Exception $e) {
+//                $user->update(['code' => 1111]);
+//            }
+//        }
 
         $user->update(['code' => $code]);
     }
