@@ -11,6 +11,7 @@ namespace App\Imports;
 use App\Models\User;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -28,6 +29,7 @@ class ProductImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
 
     public function model(array $row)
     {
+        Log::info($row);
         return new Product([
             'company_id' => 1,
             'name' => $row['naimenovanie'],
