@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if(!request()->is('admin*')) {
+            request()->headers->set('Accept', 'application/json');
+        }
     }
 }

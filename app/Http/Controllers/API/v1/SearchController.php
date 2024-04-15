@@ -59,14 +59,12 @@ class SearchController extends Controller
             }
         }
 
-        $result = [
+        return [
             'success' => true,
             'data'    => [
                 'categories' => $data,
                 'car'        => $autoPartsData->car,
             ],
         ];
-
-        return $result;
     }
 }

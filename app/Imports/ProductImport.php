@@ -49,11 +49,11 @@ class ProductImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
 
     public function chunkSize(): int
     {
-        return 50000;
+        return 5000;
     }
 
     public function batchSize(): int
     {
-        return 50000;
+        return 5000;
     }
 }
